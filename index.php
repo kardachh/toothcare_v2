@@ -1,0 +1,290 @@
+<?php
+
+$dbHost = "localhost";
+$user = "root";
+$pass = "root";
+$dbName = "tooth_care";
+$mysqli = mysqli_connect($dbHost, $user, $pass, $dbName);
+if ($mysqli == false) {
+    echo ("Ошибка подключения к БД!");
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link href="./dist/output.css" rel="stylesheet" />
+    <title>Стоматологическая клиника "Зуб"</title>
+</head>
+
+<body>
+    <!-- top menu -->
+    <div id="top-menu-parent" class="fixed w-full h-[75px] drop-shadow-md bg-white top-0 px-5 md:px-10 z-50">
+        <div id="top-menu" class="container mx-auto flex justify-between items-center h-full">
+            <div id="logo" class="cursor-pointer flex items-center" onclick="window.scrollTo({top:0})">
+                <img class="h-[50px]" src="./assets/icon.png" />
+            </div>
+            <div id="links" class="hidden lg:flex lg:space-x-[70px] text-base md:text-xl items-center">
+                <div><a href="#About">О нас</a></div>
+                <div><a href="#Services">Услуги</a></div>
+                <div> <a href="#Reviews">Отзывы</a></div>
+                <div><a href="#Contacts">
+                        <div class="text-white text-base md:text-xl rounded-full bg-[#769CCA] py-2 px-5 cursor-pointer">
+                            Записаться
+                        </div>
+                    </a></div>
+            </div>
+            <div id="open-menu" class="lg:hidden">
+                <img src="./assets/burger.svg" class="cursor-pointer">
+            </div>
+            <div id="close-menu" class="absolute top-[25px] right-[25px] hidden">
+                <img src="../../assets/close.svg" class="cursor-pointer">
+            </div>
+        </div>
+    </div>
+
+    <div id="About" class="container mx-auto flex flex-col md:flex-row mt-[75px] bg-white pt-10 justify-evenly items-center px-5 md:px-10">
+        <div class="flex flex-col justify-center">
+            <div class="text-3xl md:text-[45px] md:leading-[54px] font-semibold">Стоматологическая <br class="hidden lg:block" /> клиника Зуб</div>
+            <div class="text-lg mt-3 md:mt-6 md:text-2xl">Заботимся о ваших зубах вместо вас</div>
+        </div>
+        <div class="flex justify-end w-2/3 md:w-auto mt-3 md:mt-0">
+            <img class="" src="assets/logo.png" />
+        </div>
+    </div>
+
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 mt-20 px-5 md:px-10">
+        <div class="flex flex-col justify-center items-center">
+            <div class="text-4xl">
+                3000<span class="text-[#769CCA]">+</span>
+            </div>
+            <div class="mt-2 text-base text-[#00000070] text-center ">Более 3000 довольных клиентов каждый год </div>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+            <div class="text-4xl">
+                10<span class="text-[#769CCA]">+</span>
+            </div>
+            <div class="mt-2 text-base text-[#00000070] text-center">Уже 10 лет дарим улыбки нашим клиентам!</div>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+            <div class="text-4xl">
+                1000<span class="text-[#769CCA]">+</span>
+            </div>
+            <div class="mt-2 text-base text-[#00000070] text-center">Более 1000 установленных имплантатов</div>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+            <div class="text-4xl">
+                500<span class="text-[#769CCA]">+</span>
+            </div>
+            <div class="mt-2 text-base text-[#00000070] text-center">Более 500 установленных керамических виниров</div>
+        </div>
+    </div>
+
+    <div id="Services" class="container mx-auto flex flex-col justify-center items-center mt-20 px-5 md:px-10">
+        <div class="text-3xl md:text-4xl font-medium">
+            Всё в одном месте
+        </div>
+        <div class="text-xl md:text-2xl text-[#00000070] mt-6 md:mt-12 text-center">
+            Мы предоставляем своим клиентам комплексный подход - от лечения до имплантации и протезирования на лучших
+            мировых системах!
+        </div>
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 md:gap-8 2xl:gap-4 space-y-5 md:space-y-0">
+            <div class="bg-white drop-shadow-[5px_4px_10px_#769CCA] rounded-2xl px-4 py-6 flex flex-col md:flex-row items-center md:items-start">
+                <div class="w-1/3">
+                    <img src="assets/teeth/tooth1.png">
+                </div>
+                <div class="flex flex-col w-5/6 md:w-2/3">
+                    <div class="text-xl text-[#769CCA] text-center">Лечение кариеса</div>
+                    <div class="mt-4">Эффективные методики лечения кариеса любой сложности на любой стадии заболевания.
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white drop-shadow-[5px_4px_10px_#769CCA] rounded-2xl px-4 py-6 flex flex-col md:flex-row items-center md:items-start">
+                <div class="w-1/3">
+                    <img src="assets/teeth/tooth2.png">
+                </div>
+                <div class="flex flex-col w-5/6 md:w-2/3">
+                    <div class="text-xl text-[#769CCA] text-center">Чистка зубов</div>
+                    <div class="mt-4">Современная, безопасная и эффективная методика отбеливания и чистки зубов, в том
+                        числе Air Flow.</div>
+                </div>
+            </div>
+            <div class="bg-white drop-shadow-[5px_4px_10px_#769CCA] rounded-2xl px-4 py-6 flex flex-col md:flex-row items-center md:items-start">
+                <div class="w-1/3">
+                    <img src="assets/teeth/tooth3.png">
+                </div>
+                <div class="flex flex-col w-5/6 md:w-2/3">
+                    <div class="text-xl text-[#769CCA] text-center">Лечение пульпита</div>
+                    <div class="mt-4">Индивидуальный подбор схемы лечения. Лечение детского пульпита, в том числе
+                        молочных зубов.</div>
+                </div>
+            </div>
+            <div class="bg-white drop-shadow-[5px_4px_10px_#769CCA] rounded-2xl px-4 py-6 flex flex-col md:flex-row items-center md:items-start">
+                <div class="w-1/3">
+                    <img src="assets/teeth/tooth4.png">
+                </div>
+                <div class="flex flex-col w-5/6 md:w-2/3">
+                    <div class="text-xl text-[#769CCA] text-center">Импланты зубов</div>
+                    <div class="mt-4">Безопасная имплантация зубов. Имплантация под ключ по демократичным ценам.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Reviews" class="w-full mx-auto mt-20 flex flex-col items-center px-5 md:px-10">
+        <div class="text-center text-3xl md:text-4xl font-medium">
+            Отзывы
+        </div>
+        <!-- Swiper -->
+        <div class="relative w-full overflow-hidden py-10">
+            <div class="absolute h-full top-0 left-0 w-[50px] md:w-[100px] bg-gradient-to-r from-white z-10"></div>
+            <div class="absolute h-full top-0 right-0 w-[50px] md:w-[100px] bg-gradient-to-l from-white z-10"></div>
+            <div class="swiper swiperReviews container overflow-visible w-2/3 md:w-5/6">
+                <div class="swiper-wrapper ">
+                    <?php
+                    $reviewsList = mysqli_query($mysqli, "SELECT * FROM `reviews`");
+                    $reviewsList = mysqli_fetch_all($reviewsList);
+                    foreach ($reviewsList as $review) {
+                    ?>
+                        <div class="swiper-slide flex flex-col rounded-2xl bg-white drop-shadow-[5px_4px_10px_#769CCA] py-6 px-4 w-full">
+                            <!-- FIO -->
+                            <div class="text-xl text-[#769CCA] mb-4">
+                                <?= $review[1] ?>
+                            </div>
+                            <!-- TEXT -->
+                            <div>
+                                <?= $review[2] ?>
+                            </div>
+
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="swiper-button-next z-10 text-[#769CCA]"></div>
+            <div class="swiper-button-prev z-10 text-[#769CCA]"></div>
+        </div>
+
+    </div>
+
+    <div id="Contacts" class="container mx-auto mt-20 grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10 px-10">
+        <div class="lg:col-span-2">
+            <div class="text-3xl md:text-4xl font-semibold">Бесплатная консультация</div>
+            <div class="mt-5 md:mt-10 text-[#000000B2] text-xl md:text-2xl">Записывайтесь на бесплатную первичную
+                консультацию с лечением в
+                тот же день</div>
+
+        </div>
+        <form class="lg:row-span-3 bg-white drop-shadow-[5px_4px_10px_#769CCA] rounded-2xl py-10 px-12 flex flex-col items-center" method="post" action="application.php">
+            <div class="text-2xl text-center font-semibold">Заполните и мы <br />перезвоним</div>
+            <div class="mt-11 space-y-5 w-full">
+                <div class="">
+                    <input class="p-4 w-full bg-[#769CCA33] rounded-full" name="name" placeholder="Ваше имя">
+                </div>
+                <div class="">
+                    <input class="p-4 w-full bg-[#769CCA33] rounded-full" name="telNumber" placeholder="Телефон">
+                </div>
+                <div>
+                    <input class="p-4 w-full bg-[#769CCA33] rounded-full" name="mail" placeholder="Email">
+                </div>
+            </div>
+            <input class=" mt-11 bg-[#769CCA] rounded-full text-white px-8 py-3 text-center text-xl cursor-pointer" type="submit" value="Записаться">
+        </form>
+        <div class="lg:row-span-2 bg-white drop-shadow-[5px_4px_10px_#769CCA] rounded-2xl py-10 flex flex-col items-center">
+            <div>
+                <img src="./assets/phone.png">
+            </div>
+            <div class="mt-9 text-2xl font-semibold">
+                Телефон
+            </div>
+            <div class="text-xl text-[#00000080] mt-9">
+                (8332) 65-79-81
+            </div>
+        </div>
+        <div class="lg:row-span-2 bg-white drop-shadow-[5px_4px_10px_#769CCA] rounded-2xl py-10 flex flex-col items-center">
+            <div>
+                <img src="./assets/clock.png">
+            </div>
+            <div class="mt-9 text-xl font-semibold">
+                Время работы
+            </div>
+            <div class="text-xl text-[#00000080] mt-9 text-center">
+                ПН-ПТ
+                <br />
+                08:00 - 19:00
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Initialize Swiper -->
+<script>
+    const swiper = new Swiper(".swiperReviews", {
+        direction: 'horizontal',
+        rewind: true,
+        slidesPerView: 1,
+        spaceBetween: 32,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 2
+            },
+            1024: {
+                slidesPerView: 3
+            }
+        }
+    });
+</script>
+
+<script>
+    let mobileMenuIsOpen = false;
+
+    const toggleMobileMenu = () => {
+        if (document.documentElement.clientWidth < 1024) {
+            document.getElementById("top-menu-parent").classList.toggle("h-full")
+            document.getElementById("top-menu-parent").classList.toggle("px-5")
+            document.getElementById("top-menu-parent").classList.toggle("h-[75px]")
+            document.getElementById("top-menu").classList.toggle("flex-col")
+            document.getElementById("top-menu").classList.toggle("items-center")
+            document.getElementById("top-menu").classList.toggle("items-start")
+            document.getElementById("top-menu").classList.toggle("justify-between")
+            document.getElementById("top-menu").classList.toggle("justify-start")
+            document.getElementById("logo").classList.toggle("w-full")
+            document.getElementById("logo").classList.toggle("px-5")
+            document.getElementById("logo").classList.toggle("border-b-2")
+            document.getElementById("logo").classList.toggle("border-[#769CCA]")
+            document.getElementById("logo").classList.toggle("h-[75px]")
+            document.getElementById("logo").classList.toggle("mb-[20px]")
+            document.getElementById("links").classList.toggle("px-5")
+            document.getElementById("links").classList.toggle("hidden")
+            document.getElementById("links").classList.toggle("space-y-5")
+            document.getElementById("open-menu").classList.toggle("hidden")
+            document.getElementById("close-menu").classList.toggle("hidden")
+            mobileMenuIsOpen = !mobileMenuIsOpen
+        }
+    }
+
+    document.getElementById("open-menu").addEventListener("click", toggleMobileMenu)
+    document.getElementById("close-menu").addEventListener("click", toggleMobileMenu)
+    document.getElementById("logo").addEventListener("click", () => {
+        mobileMenuIsOpen && toggleMobileMenu()
+    })
+    Array.from(document.getElementById("links").children).forEach((link) => link.addEventListener("click", toggleMobileMenu))
+</script>
+
+</html>

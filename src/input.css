@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    /* /плавный переход/ */
+    scroll-behavior: smooth;
+    /* /когда фиксированный заголовок, то указания браузеру на какую позицию нужно сдвинуть scroll, 100px - высота фиксированной шапки/ */
+    scroll-padding-top: 100px;
+  }
